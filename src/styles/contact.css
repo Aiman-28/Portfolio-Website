@@ -1,0 +1,65 @@
+.info-row { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.info-row--last { border: 0; }
+.info-row .icon-box { margin: 0; flex: none; }
+.info-row small { display: block; color: var(--muted); }
+.info-row a:hover { color: var(--accent); }
+
+.copy-btn {
+  margin-left: auto;
+  min-width: 84px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  padding: 7px 16px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.copy-btn:hover { background: var(--accent-deep); }
+
+.pin { animation: ping 1.8s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.6); } 70% { box-shadow: 0 0 0 14px transparent; } }
+
+.form { display: grid; gap: 14px; }
+.form .card__heading { margin-bottom: 0; }
+.form label { display: grid; gap: 6px; font-size: 0.85rem; color: var(--muted); }
+.form input, .form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(10, 10, 20, 0.8);
+  color: var(--text);
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form input:focus-visible, .form textarea:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25); }
+.form .btn { justify-self: start; margin: 0; }
+.form__note { font-size: 0.8rem !important; }
+
+.socials { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 30px; }
+.socials a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(10, 10, 20, 0.7);
+  font-weight: 500;
+  transition: 0.35s;
+}
+.socials a:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 0 30px -10px var(--accent); }
+.socials b {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(168, 85, 247, 0.18);
+  color: var(--accent);
+  font-size: 0.8rem;
+  transition: 0.35s;
+}
+.socials a:hover b { background: var(--accent); color: #fff; transform: rotate(-10deg); }

@@ -1,0 +1,69 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) var(--pad) 14px;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s, border-color 0.4s;
+  animation: fade-down 0.9s 0.1s backwards;
+}
+@keyframes fade-down { from { opacity: 0; transform: translateY(-20px); } }
+.nav.solid { background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(14px); border-color: var(--border); }
+
+.nav__logo { font-weight: 700; font-size: 1.2rem; }
+.nav__links { display: flex; gap: 6px; }
+.nav__links a { position: relative; padding: 6px 12px; font-size: 0.88rem; color: var(--muted); transition: color 0.3s; }
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  left: 12px; right: 12px; bottom: 0;
+  height: 2px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.35s;
+}
+.nav__links a:hover, .nav__links a.on { color: #fff; }
+.nav__links a:hover::after, .nav__links a.on::after { transform: scaleX(1); }
+
+.nav__progress {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav__burger { display: none; background: none; border: 0; cursor: pointer; padding: 6px; z-index: 70; }
+.nav__burger i { display: block; width: 24px; height: 2px; background: #fff; margin: 6px 0; transition: transform 0.3s; }
+.nav__burger.x i:first-child { transform: translateY(4px) rotate(45deg); }
+.nav__burger.x i:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  clip-path: circle(0 at calc(100% - 40px) 40px);
+  transition: opacity 0.35s, clip-path 0.55s cubic-bezier(0.77, 0, 0.18, 1), visibility 0s 0.55s;
+}
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  clip-path: circle(150% at calc(100% - 40px) 40px);
+  transition-delay: 0s;
+}
+.mobile-menu a.on { color: var(--accent); }

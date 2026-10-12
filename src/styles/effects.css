@@ -1,0 +1,33 @@
+/* Ambient glow blobs */
+.ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.ambient i {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.ambient i:nth-child(1) { width: 520px; height: 520px; background: rgba(124, 58, 237, 0.45); top: -160px; left: -120px; }
+.ambient i:nth-child(2) { width: 420px; height: 420px; background: rgba(34, 211, 238, 0.18); right: -100px; top: 35%; animation-delay: -6s; }
+.ambient i:nth-child(3) { width: 480px; height: 480px; background: rgba(168, 85, 247, 0.3); bottom: -200px; left: 30%; animation-delay: -11s; }
+@keyframes drift { to { transform: translate(70px, -50px) scale(1.2); } }
+
+/* Custom cursor */
+.trail { position: fixed; inset: 0; z-index: 98; pointer-events: none; }
+.cursor-dot, .cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0;
+  border-radius: 50%;
+}
+.cursor-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: #fff; box-shadow: 0 0 14px 3px var(--accent); }
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1.5px solid var(--accent);
+  transition: width 0.3s, height 0.3s, margin 0.3s, background 0.3s;
+}
+.cursor-ring.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(168, 85, 247, 0.2); }
